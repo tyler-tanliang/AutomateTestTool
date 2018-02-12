@@ -1,0 +1,1 @@
+This tool is used to design automate test cases for web and mobile app.
