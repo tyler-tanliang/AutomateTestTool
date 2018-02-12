@@ -1,3 +1,2 @@
 ﻿Application:BaiduSearch;BrowserType:chrome
 WebTestCases\TestCaseDemo1.txt
-WebTestCases\TestCaseDemo2.txt
