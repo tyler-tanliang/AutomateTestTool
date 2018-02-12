@@ -331,49 +331,6 @@ namespace AutomatedQA.Web
                     if (id != null && id.Equals("_url", StringComparison.CurrentCultureIgnoreCase))
                     {
                         _driver.Navigate().GoToUrl(value);
-                        if (value.Contains("9001"))
-                        {
-                            Thread.Sleep(1000);
-                            IList<Cookie> test = _driver.Manage().Cookies.AllCookies;
-                            //Cookie[] old = new Cookie[test.Count];
-                            //test.CopyTo(old,0);
-                            _driver.Manage().Cookies.DeleteAllCookies();
-                            Cookie[] userCookie = new Cookie[7];
-                            userCookie[0]= new Cookie("accessToken", "RNhEn-fkva_cwKyO6AqkRtNaV8e8EuhU6th7Wuy2_Rbsqn1nkcq9GOtKEwRj6YNTFbYjnFIThDYWJe_KxLqjIguhtIryplA4tDDMjPTZU10oUe0LzU5psYJJVxxvVWAu0_arsFPLTFeI_0HSFC2XD9wcL14iMkvnrPoaFR_Lm39UzqmLemmSdXVLwkjdiafYcgP8NdB8KlHyX8-qQxuPbCvor0Q9E-G50NLcj9JTNRflhAKejBLMh7EWE12oeJsJ", "192.168.1.104","/",null);
-                            userCookie[1] = new Cookie("UserRolePriority", "6", "192.168.1.104", "/", null);
-                            userCookie[2] = new Cookie("roleId", "6", "192.168.1.104", "/", null);
-                            userCookie[3] = new Cookie("roleLevel", "6", "192.168.1.104", "/", null);
-                            userCookie[4] = new Cookie("userId", "22", "192.168.1.104", "/", null);
-                            userCookie[5] = new Cookie("userName", "Admin", "192.168.1.104", "/", null);
-                            userCookie[6] = new Cookie("userRole", "Management", "192.168.1.104", "/", null);
-                            foreach (Cookie c in userCookie)
-                            {
-                                _driver.Manage().Cookies.AddCookie(c);
-                            }
-                            _driver.Navigate().GoToUrl(value);
-                            //foreach (Cookie c in old)
-                            //{
-                            //    _driver.Manage().Cookies.AddCookie(c);
-                            //}
-                            //192.168.1.104
-                            //    /
-                            //Cookie cookie = new Cookie("accessToken", "qP1l76XBNjkvF2QYv7KMPMAz9PkMl-nSsRfDxMQlJD5WPuhjuzjmlJMzmfmS32CUluxvNqjPrqnQ7aiN2u8ZFAacbfEAvMjJEBotu0I6LdC064ab8Do6HLCuAkIyT6WvTX2GqL1Jy45jmwkJqWyepZIBv9_bf8bMIYBvphBe4IJ07fgKDto2WNZgwBhbsCMcXDuEdIfRoBTwL-UhrOTcFRxnrYXhkAiae2I_tSWmfb44x9EgCrsgQHjHp_TzTwzu");
-                            //Cookie cookie = new Cookie("accessToken", "qP1l76XBNjkvF2QYv7KMPMAz9PkMl-nSsRfDxMQlJD5WPuhjuzjmlJMzmfmS32CUluxvNqjPrqnQ7aiN2u8ZFAacbfEAvMjJEBotu0I6LdC064ab8Do6HLCuAkIyT6WvTX2GqL1Jy45jmwkJqWyepZIBv9_bf8bMIYBvphBe4IJ07fgKDto2WNZgwBhbsCMcXDuEdIfRoBTwL-UhrOTcFRxnrYXhkAiae2I_tSWmfb44x9EgCrsgQHjHp_TzTwzu");
-                            //Cookie c1 = new Cookie("UserRolePriority", "6");
-                            //Cookie c2 = new Cookie("roleId", "6");
-                            //Cookie c3 = new Cookie("roleLevel", "6");
-                            //Cookie c4 = new Cookie("userId", "22");
-                            //Cookie c5 = new Cookie("userName", "Admin");
-                            //Cookie c6 = new Cookie("userRole", "Management");
-                            //_driver.Manage().Cookies.AddCookie(cookie);
-                            //_driver.Manage().Cookies.AddCookie(c1);
-                            //_driver.Manage().Cookies.AddCookie(c2);
-                            //_driver.Manage().Cookies.AddCookie(c3);
-                            //_driver.Manage().Cookies.AddCookie(c4);
-                            //_driver.Manage().Cookies.AddCookie(c5);
-                            //_driver.Manage().Cookies.AddCookie(c6);
-                            //_driver.Navigate().GoToUrl(value);
-                        }
                         if (_name.ToUpper().Equals("IE"))
                         {
                             object sslError = _javaScript.ExecuteScript("return document.getElementById('overridelink')");

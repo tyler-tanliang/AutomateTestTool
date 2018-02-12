@@ -257,6 +257,7 @@ namespace AutomatedQA.TestPlan
 
         public void Execute(int delay = 1000, bool continueWhenError = true,bool sendEmail=true)
         {
+            ICommand currentCommand = null;
             //create new temp image folder
             _tempFilePath = Path.Combine(_tempFilePath, DateTime.Now.ToString("yyyyMMddHHmmssfff"));
             if (!Directory.Exists(_tempFilePath))
@@ -274,13 +275,11 @@ namespace AutomatedQA.TestPlan
                 AppElementCollection appCollection = appElementCollection.FirstOrDefault(a => a.Name == t.Key);
                 if (appCollection.Type.Equals("web", StringComparison.CurrentCultureIgnoreCase))
                 {
-                    ICommand command = new WebCommand(t.Value, _webDriversPath, appCollection);
-                    _command.Add(t.Key, command);
+                    currentCommand = new WebCommand(t.Value, _webDriversPath, appCollection);
                 }
                 else if (appCollection.Type.Equals("android", StringComparison.CurrentCultureIgnoreCase))
                 {
-                    ICommand command = new AndroidCommand("android", appCollection);
-                    _command.Add(t.Key, command);
+                    currentCommand = new AndroidCommand("android", appCollection);
                 }
                 else if (appCollection.Type.Equals("ios", StringComparison.CurrentCultureIgnoreCase))
                 {
@@ -290,6 +289,8 @@ namespace AutomatedQA.TestPlan
                 {
                     //_command = new DesktopAppCommand(appCollection);
                 }
+                _command.Add(t.Key, currentCommand);
+                CurrentBrowserType = t.Value;
             }
             //AppElementCollection appCollection = appElementCollection.FirstOrDefault(a => a.Name == Application);
 
@@ -300,7 +301,7 @@ namespace AutomatedQA.TestPlan
             #region Execute Test Cases
             //Execute test cases
 
-            ICommand currentCommand = null;
+            
             string regionName = string.Empty;
             for (int i = 0; i < TestCases.Count; i++)
             {
@@ -330,7 +331,6 @@ namespace AutomatedQA.TestPlan
                                 }
                                 continue;
                             }
-
                             //if test case include inner testcase
                             if (strCommand.ToLower().StartsWith("innertestcase"))
                             {

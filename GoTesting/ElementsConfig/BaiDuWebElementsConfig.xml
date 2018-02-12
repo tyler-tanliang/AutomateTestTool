@@ -1,21 +1,8 @@
 <?xml version="1.0"?>
-<App Name="BaiduSearch" Type="Web" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Regions Id="SearchPage" Name="baidu">
-    <Element Id="SearchContent" Signature="Id:kw" />
-    <Element Id="SearchContent_Copy" Signature="Name:wd" />
-    <Element Id="QuickDelete" Signature="ClassName:quickdelete" />
-    <Element Id="SearchButton" Signature="Id:su" />
-    <Element Id="SearchButton_Copy" Signature="js:$('input[value=&quot;百度一下&quot;]')" />
-    <Element Id="SearchResult" Signature="CssSelector:div.result h3 a"/>
-    <Element Id="SearchResult_Copy" Signature="XPath://div[contains(@class,'result c-container')]/h3/a"/>
-    <Element Id="SearchResult_Frame" Signature="TagName:h3"/>
-    <Element Id="LanguageOption" Signature="ClassName:search_tool_la"/>
-    <Element Id="Search_All_Result" Signature="LinkText:所有网页"/>
-    <Element Id="Search_English_Result" Signature="LinkText:英文结果"/>
-    <Element Id="Search_English_Result_Copy" Signature="PartialLinkText:英文" />
-  </Regions>
-  <Regions Id="ShineTechHomePage" Name="shinetechchina">
-    <Element Id="Storage" Signature="LinkText:仓储" />
-    <Element Id="Logistics" Signature="CssSelector:div.pagecontent h2"/>
+<App Name="ShinetechSoftSearch" Type="Web" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Regions Id="SearchPage" Name="google">
+    <Element Id="SearchContent" Signature="CssSelector:input[title=&quot;Search&quot;]" />
+    <Element Id="SearchButton" Signature="Name:btnK" />
+    <Element Id="SearchResult" Signature="CssSelector:.ads-ad h3"/>
   </Regions>
 </App>

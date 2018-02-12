@@ -1,2 +1,2 @@
-﻿Application:BaiduSearch;BrowserType:chrome
+﻿Application:ShinetechSoftSearch,BrowserType:chrome
 WebTestCases\TestCaseDemo1.txt

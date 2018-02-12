@@ -85,8 +85,8 @@ namespace AutomatedQA.Web
                 case "assert":
                     if (parameters[1].Equals("url", StringComparison.CurrentCultureIgnoreCase))
                         command.Assert(null, parameters[1], parameters[2], parameters.Skip(3).ToArray());
-                    //else if (parameters[1].Equals("page", StringComparison.CurrentCultureIgnoreCase))
-                    //    command.Assert(null, parameters[1], parameters[2], parameters.Skip(3).ToArray());
+                    else if (parameters[1].Equals("page", StringComparison.CurrentCultureIgnoreCase))
+                        command.Assert(null, parameters[1], parameters[2], parameters.Skip(3).ToArray());
                     else if (parameters.Count(p => !command.SpecialParameters.Contains(p)) == 3)
                         command.Assert(parameters[1], "text", parameters[2], parameters.Skip(3).ToArray());
                     else
